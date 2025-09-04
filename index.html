@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutumba Shoes - Quality Pre-Loved Footwear</title>
+    <link rel="stylesheet" href="style.css"> <!-- Links to our CSS file -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo"><a href="#">Mutumba Shoes</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#shoes-grid">Browse Shoes</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h2>Discover Your Next Favorite Pair, Sustainably.</h2>
+            <p>Your trusted source for quality pre-loved shoes. Find unique styles from local businesses, delivered right to you.</p>
+            <a href="#shoes-grid" class="btn btn-primary">Explore Our Collection</a>
+        </div>
+    </section>
+
+    <section id="shoes-grid" class="shoes-grid-section">
+        <div class="container">
+            <h2>Our Latest Finds</h2>
+            <div class="shoes-grid">
+
+                <!-- Example Shoe Listing 1 -->
+                <div class="shoe-card">
+                    <img src="https://via.placeholder.com/300x200?text=Sneaker+1" alt="Stylish Black Sneakers">
+                    <h3>Stylish Black Sneakers</h3>
+                    <p class="description">Comfortable and durable black sneakers, perfect for everyday wear. Excellent condition.</p>
+                    <p class="details"><strong>Size:</strong> US 9 | <strong>Condition:</strong> 8/10</p>
+                    <p class="price">UGX 85,000</p>
+                    <div class="seller-info">
+                        <p>Sold by: <strong>Kigali Kicks</strong></p>
+                        <a href="https://wa.me/256771234567" target="_blank" class="btn btn-secondary">Contact Seller (WhatsApp)</a>
+                    </div>
+                </div>
+
+                <!-- Example Shoe Listing 2 -->
+                <div class="shoe-card">
+                    <img src="https://via.placeholder.com/300x200?text=Heels+2" alt="Elegant Red Heels">
+                    <h3>Elegant Red Heels</h3>
+                    <p class="description">Stunning red heels, ideal for special occasions. Worn once, almost new.</p>
+                    <p class="details"><strong>Size:</strong> US 7 | <strong>Condition:</strong> 9/10</p>
+                    <p class="price">UGX 120,000</p>
+                    <div class="seller-info">
+                        <p>Sold by: <strong>Trendy Feet Collections</strong></p>
+                        <a href="mailto:trendyfeet@example.com" class="btn btn-secondary">Contact Seller (Email)</a>
+                    </div>
+                </div>
+
+                <!-- Example Shoe Listing 3 -->
+                <div class="shoe-card">
+                    <img src="https://via.placeholder.com/300x200?text=Boots+3" alt="Classic Brown Boots">
+                    <h3>Classic Brown Boots</h3>
+                    <p class="description">Versatile brown leather boots, comfortable and stylish. Minor scuffs, well-maintained.</p>
+                    <p class="details"><strong>Size:</strong> US 10 | <strong>Condition:</strong> 7/10</p>
+                    <p class="price">UGX 95,000</p>
+                    <div class="seller-info">
+                        <p>Sold by: <strong>Urban Soles</strong></p>
+                        <a href="tel:+256788990011" class="btn btn-secondary">Call Seller</a>
+                    </div>
+                </div>
+
+                <!-- You can add more shoe-card divs here following the same structure -->
+
+            </div> <!-- /shoes-grid -->
+        </div>
+    </section>
+
+    <section id="how-it-works" class="how-it-works-section">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <h3>1. Browse & Discover</h3>
+                    <p>Explore our curated collection of quality second-hand shoes from various local businesses.</p>
+                </div>
+                <div class="step-card">
+                    <h3>2. View Details</h3>
+                    <p>Click on any shoe to see detailed descriptions, multiple images, size, and condition.</p>
+                </div>
+                <div class="step-card">
+                    <h3>3. Connect Directly</h3>
+                    <p>Found your perfect pair? Use the provided contact info to reach the business directly and arrange purchase/delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us" class="contact-us-section">
+        <div class="container">
+            <h2>Partner With Us / General Inquiry</h2>
+            <p>Are you a shoe business looking to list your quality second-hand footwear? Or do you have a general question?</p>
+            <p>Reach out to the Mutumba Shoes team:</p>
+            <div class="contact-methods">
+                <p>Email: <a href="mailto:info@mutumbashoes.com">info@mutumbashoes.com</a></p>
+                <p>WhatsApp: <a href="https://wa.me/256700112233" target="_blank">+256 700 112233</a></p>
+            </div>
+            <p class="business-cta">We're always looking for new businesses to join our platform!</p>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2023 Mutumba Shoes. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+```
+
+---
+
+**File 2: `style.css`**
+
+```css
+/* Basic Reset & Typography */
+:root {
+    --primary-color: #4CAF50; /* A friendly green */
+    --secondary-color: #2E7D32; /* Darker green */
+    --accent-color: #FFC107; /* A warm yellow for highlights */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --bg-dark: #2c3e50; /* Dark blue/grey */
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--light-text-color);
+}
+
+.btn-secondary {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+
+/* Header */
+.main-header {
+    background-color: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: var(--light-text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x500/333/fff?text=Mutumba+Shoes+Banner') no-repeat center center/cover;
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 3rem;
+}
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Shoe Grid Section */
+.shoes-grid-section,
+.how-it-works-section,
+.contact-us-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.shoes-grid-section h2,
+.how-it-works-section h2,
+.contact-us-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.shoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.shoe-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+    padding-bottom: 20px; /* Space for button */
+}
+
+.shoe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.shoe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.shoe-card h3 {
+    font-size: 1.4rem;
+    margin: 0 15px 10px;
+    color: var(--secondary-color);
+}
+
+.shoe-card .description,
+.shoe-card .details,
+.shoe-card .price,
+.shoe-card .seller-info {
+    font-size: 0.95rem;
+    margin: 0 15px 10px;
+}
+
+.shoe-card .price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.shoe-card .seller-info {
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 15px;
+    margin-bottom: 0; /* Adjust for button below */
+}
+
+.shoe-card .btn {
+    width: calc(100% - 30px); /* Full width minus padding */
+    margin: 0 15px;
+    text-align: center;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.how-it-works-section h2 {
+    color: var(--light-text-color);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.step-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.step-card h3 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    font-size: 1.1rem;
+}
+
+/* Contact Us Section */
+.contact-us-section {
+    background-color: #fff;
+}
+
+.contact-methods p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-methods a {
+    font-weight: 600;
+}
+
+.business-cta {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links a {
+    color: var(--light-text-color);
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .main-nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 10px 0;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    .shoes-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
+    }
+
+    .how-it-works-section h2,
+    .contact-us-section h2 {
+        font-size: 2rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+        margin-top: 15px;
+    }
+}
