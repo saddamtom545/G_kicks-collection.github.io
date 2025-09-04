@@ -1,13 +1,13 @@
 /* Basic Reset & Typography */
 :root {
-    --primary-color: #4CAF50; /* A friendly green */
-    --secondary-color: #2E7D32; /* Darker green */
+    --primary-color: #FFD700; /* A yellow green */
+    --secondary-color: #FFACD; /* soft yellow */
     --accent-color: #FFC107; /* A warm yellow for highlights */
     --text-color: #333;
     --light-text-color: #f4f4f4;
     --bg-light: #f9f9f9;
     --bg-dark: #2c3e50; /* Dark blue/grey */
-    --border-color: #ddd;
+    --border-color: #8A2BE2;
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
