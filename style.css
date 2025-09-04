@@ -1,345 +1,97 @@
-/* Basic Reset & Typography */
-:root {
-    --primary-color: #FFD700; /* A yellow green */
-    --secondary-color: #FFACD; /* soft yellow */
-    --accent-color: #FFC107; /* A warm yellow for highlights */
-    --text-color: #333;
-    --light-text-color: #f4f4f4;
-    --bg-light: #f9f9f9;
-    --bg-dark: #2c3e50; /* Dark blue/grey */
-    --border-color: #8A2BE2;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* --- Global Styles & Resets --- */
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Default font for the body */
+    margin: 0; /* Remove default browser margin */
+    padding: 0; /* Remove default browser padding */
+    background-color: #fff; /* Explicitly white background for fallback */
+    color: #333; /* Default text color, a dark grey */
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--bg-light);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Important for 3D perspective to work for children */
+    perspective: 1000px; /* Gives a 3D perspective to the body */
+    overflow-x: hidden; /* Prevent horizontal scroll from transforms */
 }
 
+/* Animated Background Photo */
+body::before {
+    content: '';
+    position: fixed; /* Stays in place when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://picsum.photos/1920/1080?random=1'); /* Placeholder image, replace with your own! */
+    background-size: cover;
+    background-position: center;
+    z-index: -2; /* Puts it behind everything else */
+    animation: backgroundZoomPan 30s ease-in-out infinite alternate; /* Apply animation */
+}
+
+/* Semi-transparent Overlay for Readability */
+body::after {
+    content: '';
+    position: fixed; /* Stays in place when scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark semi-transparent overlay */
+    z-index: -1; /* Sits between the background and the content */
+}
+
+/* Keyframes for Background Animation */
+@keyframes backgroundZoomPan {
+    0% {
+        transform: scale(1) translate(0, 0);
+        background-position: 0% 0%;
+    }
+    100% {
+        transform: scale(1.1) translate(5%, 5%); /* Slightly zoom in and pan right/down */
+        background-position: 100% 100%;
+    }
+}
+
+/* Container for consistent content width */
+.container {
+    max-width: 1200px; /* Max width of your content */
+    margin: 0 auto; /* Centers the container horizontally */
+    padding: 0 20px; /* Adds padding on the sides for smaller screens */
+    position: relative; /* Essential for z-index of children to work with body pseudo-elements */
+    z-index: 1; /* Ensures content is above the overlay */
+}
+
+/* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
-    margin-bottom: 1rem;
-    color: var(--text-color);
+    font-family: 'Montserrat', sans-serif; /* Headings use Montserrat */
+    font-weight: 700; /* Bold for headings */
+    color: #fff; /* White headings for contrast on dark overlay */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
+}
+
+/* Centering ALL H2 section titles */
+h2 {
+    font-size: 2.2em; /* Larger for main section titles */
+    text-align: center; /* IMPORTANT: Centers all H2 elements */
+    margin-bottom: 40px;
+    padding-top: 40px; /* Space above section titles */
+    color: #fff; /* White headings for better contrast */
+}
+
+p {
+    color: #f4f4f4; /* Light text for paragraphs on dark overlay */
 }
 
 a {
-    text-decoration: none;
-    color: var(--primary-color);
+    text-decoration: none; /* Remove underline from links by default */
+    color: #F2C94C; /* Default link color (vibrant yellow) */
+    transition: color 0.3s ease;
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: #8A2BE2; /* Purple hover effect */
+    text-decoration: underline; /* Add underline on hover for links */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-    border: 2px solid var(--primary-color);
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary-color);
-    border-color: var(--secondary-color);
-    color: var(--light-text-color);
-}
-
-.btn-secondary {
-    background-color: var(--bg-light);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.btn-secondary:hover {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-}
-
-
-/* Header */
-.main-header {
-    background-color: var(--bg-dark);
-    color: var(--light-text-color);
-    padding: 1rem 0;
-    box-shadow: 0 2px 5px var(--shadow-color);
-}
-
-.main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
-}
-
-.logo {
-    margin: 0;
-    font-size: 1.8rem;
-    font-weight: 700;
-}
-
-.logo a {
-    color: var(--light-text-color);
-    text-decoration: none;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-}
-
-.main-nav ul li {
-    margin-left: 20px;
-}
-
-.main-nav ul li a {
-    color: var(--light-text-color);
-    font-weight: 600;
-    transition: color 0.3s ease;
-}
-
-.main-nav ul li a:hover {
-    color: var(--accent-color);
-}
-
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x500/333/fff?text=Mutumba+Shoes+Banner') no-repeat center center/cover;
-    color: var(--light-text-color);
-    text-align: center;
-    padding: 100px 20px;
-    margin-bottom: 3rem;
-}
-
-.hero-section h2 {
-    font-size: 2.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--light-text-color);
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Shoe Grid Section */
-.shoes-grid-section,
-.how-it-works-section,
-.contact-us-section {
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.shoes-grid-section h2,
-.how-it-works-section h2,
-.contact-us-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2.5rem;
-}
-
-.shoes-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 2rem;
-}
-
-.shoe-card {
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px var(--shadow-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-    padding-bottom: 20px; /* Space for button */
-}
-
-.shoe-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.shoe-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.shoe-card h3 {
-    font-size: 1.4rem;
-    margin: 0 15px 10px;
-    color: var(--secondary-color);
-}
-
-.shoe-card .description,
-.shoe-card .details,
-.shoe-card .price,
-.shoe-card .seller-info {
-    font-size: 0.95rem;
-    margin: 0 15px 10px;
-}
-
-.shoe-card .price {
-    font-weight: 700;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-.shoe-card .seller-info {
-    padding-top: 10px;
-    border-top: 1px solid var(--border-color);
-    margin-top: 15px;
-    margin-bottom: 0; /* Adjust for button below */
-}
-
-.shoe-card .btn {
-    width: calc(100% - 30px); /* Full width minus padding */
-    margin: 0 15px;
-    text-align: center;
-}
-
-/* How It Works Section */
-.how-it-works-section {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-}
-
-.how-it-works-section h2 {
-    color: var(--light-text-color);
-}
-
-.steps-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-top: 2rem;
-}
-
-.step-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.step-card h3 {
-    color: var(--accent-color);
-    font-size: 1.6rem;
-    margin-bottom: 15px;
-}
-
-.step-card p {
-    font-size: 1.1rem;
-}
-
-/* Contact Us Section */
-.contact-us-section {
-    background-color: #fff;
-}
-
-.contact-methods p {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-}
-
-.contact-methods a {
-    font-weight: 600;
-}
-
-.business-cta {
-    margin-top: 30px;
-    font-style: italic;
-    color: var(--secondary-color);
-}
-
-/* Footer */
-.main-footer {
-    background-color: var(--bg-dark);
-    color: var(--light-text-color);
-    padding: 2rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.main-footer .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-links a {
-    color: var(--light-text-color);
-    margin: 0 10px;
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .main-header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .main-nav ul {
-        margin-top: 15px;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .main-nav ul li {
-        margin: 10px 0;
-    }
-
-    .hero-section h2 {
-        font-size: 2rem;
-    }
-
-    .shoes-grid {
-        grid-template-columns: 1fr; /* Stack items on small screens */
-    }
-
-    .how-it-works-section h2,
-    .contact-us-section h2 {
-        font-size: 2rem;
-    }
-
-    .steps-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-links {
-        margin-top: 15px;
-    }
-}
+/* --- Header --- */
+.
