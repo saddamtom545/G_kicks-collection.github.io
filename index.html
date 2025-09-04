@@ -1,114 +1,47 @@
-<!DOCTYPE html>                                                                                                  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mutumba Shoes - Your trusted source for quality pre-loved shoes. Discover unique styles from local businesses.">
-    <title>Mutumba Shoes - Quality Pre-Loved Footwear</title>                                                        <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>                                             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- 3D Model Viewer Script -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>                                                                                                                <link rel="stylesheet" href="style.css"> <!-- Link to our external CSS file -->
-</head>                                                                                                          <body>
+    <title>G-kicks_Njumu - Choose Your Next Pair</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for a modern, clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-    <header class="main-header">                                                                                         <div class="container">
-            <h1 class="logo"><a href="#">Mutumba Shoes</a></h1>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#shoes-grid">Browse Shoes</a></li>                                                                  <li><a href="#how-it-works">How It Works</a></li>
-                    <li><a href="#contact-us">Contact Us</a></li>
-                </ul>
-            </nav>
-        </div>
+    <header class="main-header">
+        <h1>G-kicks_Njumu</h1>
     </header>
 
-    <section class="hero-section">                                                                                       <div class="container">                                                                                              <div class="hero-content">
-                <div class="hero-text">
-                    <h2>Discover Your Next Favorite Pair, Sustainably.</h2>
-                    <p>Your trusted source for quality pre-loved shoes. Find unique styles from local businesses, delivered right to you.</p>
-                    <a href="#shoes-grid" class="btn btn-primary">Explore Our Collection</a>
-                </div>
-                <!-- Animated Shoe Model -->
-                <model-viewer src="https://modelviewer.dev/shared-assets/models/Shoe.glb"
-                    ar ar-modes="webxr scene-viewer quick-look"
-                    camera-controls
-                    poster="https://placehold.co/400x400/FFFFFF/CCCCCC?text=Loading+Shoe..."
-                    shadow-intensity="1"
-                    autoplay>
-                </model-viewer>
-            </div>
-        </div>
-    </section>
+    <main>
+        <section class="gallery-section">
+            <h2>Choose Your Next Pair</h2>
+            <div class="shoe-grid">
+                <!-- Shoe Item 1 -->
+                <a href="https://via.placeholder.com/600x400/FFD700/FFFFFF?text=Shoe+1+Full" target="_blank" class="shoe-item">
+                    <img src="https://via.placeholder.com/300x200/FFD700/FFFFFF?text=Shoe+1" alt="Mutumba Shoe 1">
+                </a>
+                                                                                                                                 <!-- Shoe Item 2 -->                                                                                             <a href="https://via.placeholder.com/600x400/8A2BE2/FFFFFF?text=Shoe+2+Full" target="_blank" class="shoe-item">
+                    <img src="https://via.placeholder.com/300x200/8A2BE2/FFFFFF?text=Shoe+2" alt="Mutumba Shoe 2">
+                </a>                                                                                             
+                <!-- Shoe Item 3 -->
+                <a href="https://via.placeholder.com/600x400/FFC107/333333?text=Shoe+3+Full" target="_blank" class="shoe-item">
+                    <img src="https://via.placeholder.com/300x200/FFC107/333333?text=Shoe+3" alt="Mutumba Shoe 3">
+                </a>
 
-    <section id="shoes-grid" class="shoes-grid-section">
-        <div class="container">
-            <h2>Our Latest Finds</h2>
-            <div class="shoes-grid">
-                <!-- Shoe Listing 1: Replace src with your actual image path -->
-                <div class="shoe-card">                                                                                              <img src="images/white_sneakers.jpg" alt="Crisp White Leather Sneakers" loading="lazy">                          <h3>Crisp White Leather Sneakers</h3>                                                                            <p class="description">Timeless and versatile white sneakers. Barely worn, in near-perfect condition. A wardrobe staple.</p>
-                    <p class="details"><strong>Size:</strong> EU 43 | <strong>Condition:</strong> 9/10</p>
-                    <p class="price">NGN 15,000</p>
-                    <div class="seller-info">                                                                                            <p>Sold by: <strong>Lagos Kicks</strong></p>
-                        <a href="https://wa.me/234000000000" target="_blank" class="btn whatsapp-btn">Contact Seller (WhatsApp)</a>
-                    </div>                                                                                                       </div>
-                <!-- Shoe Listing 2: Replace src with your actual image path -->
-                <div class="shoe-card">
-                    <img src="images/brown_loafers.jpg" alt="Brown Leather Tassel Loafers" loading="lazy">
-                    <h3>Brown Leather Tassel Loafers</h3>
-                    <p class="description">Elegant and comfortable brown leather loafers, perfect for business casual or formal events. Well-maintained.</p>
-                    <p class="details"><strong>Size:</strong> EU 44 | <strong>Condition:</strong> 8/10</p>
-                    <p class="price">NGN 18,500</p>
-                    <div class="seller-info">
-                        <p>Sold by: <strong>Abuja Fine Footwear</strong></p>
-                        <a href="tel:+234000000000" class="btn btn-secondary">Call Seller</a>
-                    </div>
-                </div>
-                <!-- Shoe Listing 3: Replace src with your actual image path -->
-                <div class="shoe-card">
-                    <img src="images/wedge_sandals.jpg" alt="Stylish Summer Wedge Sandals" loading="lazy">
-                    <h3>Stylish Summer Wedge Sandals</h3>
-                    <p class="description">Chic and comfortable wedge sandals with a woven heel. Ideal for sunny days and evenings out. Lightly used.</p>
-                    <p class="details"><strong>Size:</strong> EU 39 | <strong>Condition:</strong> 8.5/10</p>
-                    <p class="price">NGN 12,000</p>
-                    <div class="seller-info">
-                        <p>Sold by: <strong>Port Harcourt Style</strong></p>
-                        <a href="mailto:sales@phstyle.com" class="btn btn-secondary">Contact Seller (Email)</a>                      </div>
-                </div>
-                <!-- Add more shoe listings here following the same structure -->
-            </div>
-        </div>
-    </section>                                                                                                   
-    <section id="how-it-works" class="how-it-works-section">
-        <div class="container">
-            <h2>How It Works</h2>
-            <div class="steps-grid">                                                                                             <div class="step-card">                                                                                              <h3>1. Browse & Discover</h3>
-                    <p>Explore our curated collection of quality second-hand shoes from various local businesses.</p>
-                </div>
-                <div class="step-card">
-                    <h3>2. View Details</h3>                                                                                         <p>Click on any shoe to see detailed descriptions, multiple images, size, and condition.</p>
-                </div>                                                                                                           <div class="step-card">
-                    <h3>3. Connect Directly</h3>
-                    <p>Found your perfect pair? Use the provided contact info to reach the business directly and arrange purchase/delivery.</p>
-                </div>
-            </div>
-        </div>
-    </section>                                                                                                   
-    <section id="contact-us" class="contact-us-section">                                                                 <div class="container">
-            <h2>Partner With Us / General Inquiry</h2>                                                                       <p>Are you a shoe business looking to list your quality second-hand footwear? Or do you have a general question?</p>
-            <p>Reach out to the Mutumba Shoes team:</p>
-            <div class="contact-methods">
-                <p>Email: <a href="mailto:boytom545@gmail.com">boytom545@gmail.com</a></p>
-                <p>WhatsApp: <a href="https://wa.me/254719309727" target="_blank">+254719309727</a></p>
-            </div>
-            <p class="business-cta">We're always looking for new businesses to join our platform!</p>                    </div>
-    </section>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 Mutumba Shoes. All rights reserved.</p>                                                           <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-            </div>
-        </div>
+                <!-- Shoe Item 4 -->                                                                                             <a href="https://via.placeholder.com/600x400/9370DB/FFFFFF?text=Shoe+4+Full" target="_blank" class="shoe-item">                                                                                                                       <img src="https://via.placeholder.com/300x200/9370DB/FFFFFF?text=Shoe+4" alt="Mutumba Shoe 4">                                                                                                                                </a>
+                                                                                                                                 <!-- Shoe Item 5 -->
+                <a href="https://via.placeholder.com/600x400/FFA07A/FFFFFF?text=Shoe+5+Full" target="_blank" class="shoe-item">
+                    <img src="https://via.placeholder.com/300x200/FFA07A/FFFFFF?text=Shoe+5" alt="Mutumba Shoe 5">
+                </a>                                                                                             
+                <!-- Shoe Item 6 -->                                                                                             <a href="https://via.placeholder.com/600x400/FFDAB9/333333?text=Shoe+6+Full" target="_blank" class="shoe-item">                                                                                                                       <img src="https://via.placeholder.com/300x200/FFDAB9/333333?text=Shoe+6" alt="Mutumba Shoe 6">                                                                                                                                </a>
+                                                                                                                                 <!-- Add more shoe items here following the same structure -->
+                <!-- Each 'a' tag wraps an 'img' tag. -->                                                                        <!-- The 'href' of the 'a' tag should be the URL of the full-size image. -->                                     <!-- The 'src' of the 'img' tag should be the URL of the thumbnail image. -->                    
+            </div>                                                                                                       </section>
+    </main>                                                                                                      
+    <footer class="main-footer">                                                                                         <p>Contact Us: <a href="tel:+1234567890">+1 (234) 567-890</a> | <a href="https://wa.me/1234567890" target="_blank">WhatsApp</a> | <a href="mailto:info@gkicksnjumu.com">info@gkicksnjumu.com</a></p>                              <p>&copy; <span id="current-year"></span> G-kicks_Njumu. All rights reserved.</p>
     </footer>                                                                                                    
-</body>
+    <script>                                                                                                             document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>                                                                                                    </body>
 </html>
