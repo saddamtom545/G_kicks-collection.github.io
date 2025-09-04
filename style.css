@@ -1,5 +1,4 @@
-/* --- Global Styles & Resets --- */
-body {
+/* --- Global Styles & Resets --- */                                                                             body {
     font-family: 'Open Sans', sans-serif; /* Default font for the body */
     margin: 0; /* Remove default browser margin */
     padding: 0; /* Remove default browser padding */
@@ -19,20 +18,21 @@ body::before {
     position: fixed; /* Stays in place when scrolling */
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url('https://picsum.photos/1920/1080?random=1'); /* Placeholder image, replace with your own! */
+    width: 100vw;                                                                                                    height: 100vh;
+    /* >>>>>> ADJUST THIS LINE FOR YOUR IMAGE PATH <<<<<< */
+    /* If style.css is in the root, and shoe.jpg is in an 'images' folder: */
+    background-image: url('images/shoe.jpg');
+    /* If style.css is in the root, and shoe.jpg is also in the root: */
+    /* background-image: url('shoe.jpg'); */
     background-size: cover;
     background-position: center;
     z-index: -2; /* Puts it behind everything else */
     animation: backgroundZoomPan 30s ease-in-out infinite alternate; /* Apply animation */
-}
-
+}                                                                                                                
 /* Semi-transparent Overlay for Readability */
 body::after {
     content: '';
-    position: fixed; /* Stays in place when scrolling */
-    top: 0;
+    position: fixed; /* Stays in place when scrolling */                                                             top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
@@ -53,21 +53,14 @@ body::after {
 }
 
 /* Container for consistent content width */
-.container {
-    max-width: 1200px; /* Max width of your content */
+.container {                                                                                                         max-width: 1200px; /* Max width of your content */
     margin: 0 auto; /* Centers the container horizontally */
-    padding: 0 20px; /* Adds padding on the sides for smaller screens */
-    position: relative; /* Essential for z-index of children to work with body pseudo-elements */
-    z-index: 1; /* Ensures content is above the overlay */
-}
-
+    padding: 0 20px; /* Adds padding on the sides for smaller screens */                                             position: relative; /* Essential for z-index of children to work with body pseudo-elements */                    z-index: 1; /* Ensures content is above the overlay */                                                       }                                                                                                                
 /* --- Typography --- */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif; /* Headings use Montserrat */
-    font-weight: 700; /* Bold for headings */
-    color: #fff; /* White headings for contrast on dark overlay */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
-}
+    font-weight: 700; /* Bold for headings */                                                                        color: #fff; /* White headings for contrast on dark overlay */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow for depth */                                 }
 
 /* Centering ALL H2 section titles */
 h2 {
@@ -75,23 +68,426 @@ h2 {
     text-align: center; /* IMPORTANT: Centers all H2 elements */
     margin-bottom: 40px;
     padding-top: 40px; /* Space above section titles */
-    color: #fff; /* White headings for better contrast */
+    color: #fff; /* White headings for better contrast in hero/contact */
+}                                                                                                                
+/* Overriding H2 for sections with a lighter background */
+.shoes-grid-section h2, .how-it-works-section h2 {
+    color: #8A2BE2; /* Purple for titles on light backgrounds */
+    text-shadow: none; /* No shadow needed here */
 }
 
-p {
-    color: #f4f4f4; /* Light text for paragraphs on dark overlay */
+p {                                                                                                                  color: #f4f4f4; /* Light text for paragraphs on dark overlay */
 }
 
-a {
-    text-decoration: none; /* Remove underline from links by default */
-    color: #F2C94C; /* Default link color (vibrant yellow) */
-    transition: color 0.3s ease;
+a {                                                                                                                  text-decoration: none; /* Remove underline from links by default */
+    color: #F2C94C; /* Default link color (vibrant yellow) */                                                        transition: color 0.3s ease;
+}                                                                                                                
+a:hover {                                                                                                            color: #8A2BE2; /* Purple hover effect */
+    text-decoration: underline; /* Add underline on hover for links */                                           }                                                                                                                
+/* --- Header --- */                                                                                             .main-header {
+    background-color: rgba(242, 201, 76, 0.9); /* Vibrant Yellow with slight transparency */
+    padding: 15px 0;
+    border-bottom: 3px solid #8A2BE2; /* Purple border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle 3D shadow */                                                    position: sticky; /* Keeps header visible on scroll */
+    top: 0;                                                                                                          z-index: 1000; /* Ensure header is above other content */
+    transform: translateZ(0); /* Hint for hardware acceleration / pseudo-3D */
 }
 
-a:hover {
-    color: #8A2BE2; /* Purple hover effect */
-    text-decoration: underline; /* Add underline on hover for links */
+.main-header .container {                                                                                            display: flex;
+    justify-content: space-between;                                                                                  align-items: center;                                                                                         }
+
+.logo a {                                                                                                            font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    color: #8A2BE2; /* Logo color changed to purple for contrast */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* More pronounced shadow for logo */
+    transform: rotateY(5deg) translateZ(10px); /* Slight 3D tilt */
+    transition: transform 0.3s ease;
 }
 
-/* --- Header --- */
-.
+.logo a:hover {
+    color: #fff; /* White on hover for logo */
+    transform: rotateY(0deg) translateZ(15px); /* More pronounced tilt on hover */
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: #6a0dad; /* Darker purple for nav links */
+    font-size: 1.1em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* For pseudo-element effects */
+    transform: translateZ(0); /* Hint for hardware acceleration */
+}
+
+.main-nav ul li a::before {                                                                                          content: '';
+    position: absolute;
+    top: 0;                                                                                                          left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);                             transition: left 0.5s ease;
+    z-index: -1;
+}
+
+.main-nav ul li a:hover {
+    color: #fff; /* White text on hover */
+    background-color: #8A2BE2; /* Purple background on hover */
+    text-decoration: none;
+    transform: scale(1.05) translateZ(5px); /* Slight scale and move forward */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Lifted shadow */
+}
+
+.main-nav ul li a:hover::before {
+    left: 100%;
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: transparent; /* Overlay handles background */
+    color: #fff;
+    position: relative;
+    z-index: 1; /* Ensure hero content is above the overlay */
+}
+
+.hero-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+    max-width: 100%; /* Ensure content doesn't overflow */
+}                                                                                                                
+.hero-text {
+    max-width: 500px;                                                                                                text-align: left;                                                                                                margin: 0 auto; /* Center text on smaller screens */
+}
+
+.hero-section h2 {                                                                                                   font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #fff; /* Ensure white on dark overlay */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* More pronounced shadow */
+}
+
+.hero-section p {
+    font-size: 1.3em;                                                                                                margin-bottom: 40px;
+    color: #f8f8f8; /* Light grey text */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+model-viewer {
+    width: 400px;
+    height: 400px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white for the model viewer background */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Deep shadow for 3D pop */
+    transform: rotateY(-10deg) translateZ(30px); /* Initial subtle 3D tilt */
+    transition: transform 0.5s ease;
+}
+
+model-viewer:hover {
+    transform: rotateY(0deg) translateZ(40px); /* Straighten up and move forward on hover */
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 50px; /* Pill-shaped button */
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border: none;                                                                                                    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3); /* Lifted 3D shadow */
+    transform: translateZ(0); /* For 3D transformations */                                                       }
+
+.btn-primary {
+    background-color: #F2C94C; /* Vibrant Yellow */                                                                  color: #8A2BE2; /* Purple text for contrast */
+}
+
+.btn-primary:hover {                                                                                                 background-color: #8A2BE2; /* Purple on hover */
+    color: #F2C94C; /* Yellow text on hover */                                                                       transform: translateY(-3px) scale(1.02) translateZ(10px); /* Lift and slightly scale */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4); /* More pronounced shadow */
+}
+
+.btn-secondary {
+    background-color: #FDF1BA; /* Light Yellow */
+    color: #6a0dad; /* Darker purple text for contrast */                                                            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}                                                                                                                
+.btn-secondary:hover {                                                                                               background-color: #8A2BE2; /* Purple on hover */
+    color: #F2C94C; /* Yellow text on hover */                                                                       transform: translateY(-2px) scale(1.02) translateZ(8px);                                                         box-shadow: 0 6px 12px rgba(0,0,0,0.3);                                                                      }                                                                                                                
+/* WhatsApp Button for each shoe */
+.whatsapp-btn {
+    display: inline-block;                                                                                           background-color: #25D366; /* WhatsApp Green */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9em;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transform: translateZ(0);
+}
+
+.whatsapp-btn:hover {
+    background-color: #128C7E; /* Darker green on hover */                                                           transform: translateY(-2px) scale(1.05) translateZ(10px);                                                        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+                                                                                                                 
+/* --- Shoes Grid Section --- */
+.shoes-grid-section {
+    padding: 60px 0;
+    background-color: rgba(255, 255, 255, 0.95); /* White, semi-transparent background for content */
+    border-radius: 10px;
+    margin: 40px auto; /* Center with space */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* Main gallery lifted shadow */
+    transform: rotateX(2deg) translateZ(-10px); /* Slight 3D tilt for the whole section */
+    transition: transform 0.5s ease;
+}
+
+.shoes-grid-section:hover {
+    transform: rotateX(0deg) translateZ(0px); /* Flat on hover */
+}
+
+.shoes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    justify-content: center;                                                                                     }
+
+.shoe-card {                                                                                                         background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Standard item shadow */
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    transform-style: preserve-3d; /* Allows for 3D children transformations */
+    transform: translateZ(0); /* Base for 3D */
+}
+
+.shoe-card:hover {
+    transform: translateY(-8px) rotateX(2deg) scale(1.03) translateZ(20px); /* Lift, tilt, scale, and move forward on hover */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25); /* More intense shadow on hover */
+    border: 2px solid #8A2BE2; /* Purple border on hover */                                                      }
+                                                                                                                 .shoe-card img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistent look */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+    border-bottom: 1px solid #eee;                                                                                   transition: transform 0.3s ease;
+}
+
+.shoe-card:hover img {
+    transform: scale(1.05) translateZ(5px); /* Slight zoom on image hover */
+}
+
+.shoe-info {
+    padding: 20px;
+}                                                                                                                
+.shoe-card h3 {
+    font-size: 1.4em;                                                                                                margin-top: 0;
+    margin-bottom: 10px;
+    color: #333; /* Dark text for clarity on white background */                                                     text-shadow: none; /* Remove text shadow for interior elements */
+}                                                                                                                
+.shoe-card .description,                                                                                         .shoe-card .details,                                                                                             .shoe-card .price {
+    padding: 0 20px;
+    margin-bottom: 10px;
+    color: #666; /* Slightly lighter text for description */
+    line-height: 1.4;
+    text-align: left; /* Align description left */
+}
+.shoe-card .price {                                                                                                  font-size: 1.5em;
+    font-weight: 700;                                                                                                color: #8A2BE2; /* Purple for price */                                                                           margin-bottom: 15px;
+    text-align: left; /* Align price left */
+}
+
+.seller-info {
+    padding: 15px 20px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #eee;
+    text-align: left; /* Align seller info left */
+}                                                                                                                
+.seller-info p {                                                                                                     margin: 0 0 10px;
+    font-weight: 600;
+    color: #333; /* Darker text for seller info */
+}                                                                                                                
+
+/* --- How It Works Section --- */
+.how-it-works-section {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for section */                                   padding: 60px 0;
+    text-align: center;
+    border-radius: 10px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);                                                                         transform: rotateX(-1deg) translateZ(-5px); /* Another subtle tilt */
+    transition: transform 0.5s ease;                                                                             }
+.how-it-works-section:hover {
+    transform: rotateX(0deg) translateZ(0px);
+}                                                                                                                
+.steps-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;                                                                                                 padding-top: 20px; /* Space between title and grid */
+}
+
+.step-card {                                                                                                         flex-basis: 30%;
+    min-width: 280px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0);                                                                                    }
+                                                                                                                 .step-card:hover {
+    transform: translateY(-5px) translateZ(10px);                                                                    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+                                                                                                                 .step-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #8A2BE2; /* Purple for step titles */
+    text-shadow: none;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+.step-card p {
+    color: #555; /* Darker text for readability on light background */
+}                                                                                                                
+/* --- Contact Section --- */
+.contact-us-section {
+    text-align: center;
+    padding: 60px 0;
+    background-color: rgba(242, 201, 76, 0.9); /* Vibrant Yellow with transparency */
+    border-radius: 10px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);                                                                         border: 3px solid #8A2BE2; /* Purple border */
+    transform: rotateY(2deg) translateZ(-15px); /* Another tilt */
+    transition: transform 0.5s ease;
+}
+.contact-us-section:hover {
+    transform: rotateY(0deg) translateZ(0px);
+}
+
+.contact-us-section h2 {
+    color: #8A2BE2; /* Purple title for contact section */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+.contact-us-section p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #333; /* Dark text for readability */
+    text-shadow: none;
+}
+.contact-methods p {
+    font-size: 1.2em;
+    margin: 15px 0;
+}
+.contact-methods a {
+    color: #6a0dad; /* Darker purple links */
+    font-weight: 700;
+}                                                                                                                .contact-methods a:hover {
+    color: #fff; /* White on hover */                                                                            }
+.business-cta {
+    margin-top: 30px;
+    font-weight: 700;
+    color: #6a0dad;
+    font-size: 1.1em;                                                                                            }                                                                                                                
+
+/* --- Footer --- */
+.main-footer {
+    background-color: rgba(60, 60, 60, 0.9); /* Dark grey with transparency */
+    color: #f4f4f4;
+    text-align: center;                                                                                              padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 3px solid #8A2BE2; /* Purple top border */
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2); /* Upward shadow for footer */
+    position: relative;
+    z-index: 1; /* Ensure footer is above the overlay */
+}
+                                                                                                                 .main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.main-footer p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #ddd;                                                                                                 }
+.main-footer .footer-links a {
+    color: #F2C94C; /* Yellow links in footer */
+    margin-left: 15px;
+    font-size: 0.9em;
+}
+.main-footer .footer-links a:hover {
+    color: #fff; /* White on hover */
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-direction: column;                                                                                          text-align: center;
+    }                                                                                                            
+    .main-nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        gap: 10px;                                                                                                   }
+
+    .main-nav ul li {                                                                                                    margin: 0; /* Remove horizontal margin for vertical nav */
+    }
+
+    .hero-content {
+        flex-direction: column;
+    }                                                                                                                .hero-text {                                                                                                         text-align: center;
+    }
+
+    .hero-section h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1.1em;
+    }
+                                                                                                                     model-viewer {
+        width: 300px;                                                                                                    height: 300px;
+    }
+                                                                                                                     .shoes-grid {
+        grid-template-columns: 1fr; /* Single column on smaller screens */                                           }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .shoes-grid-section,                                                                                             .how-it-works-section,
+    .contact-us-section {
+        margin: 20px 10px; /* Adjust margin for smaller screens */
+        padding: 30px 15px;                                                                                              transform: none; /* Remove 3D transform on smaller screens for simplicity */
+    }                                                                                                                .main-footer .container {
+        flex-direction: column;                                                                                          gap: 10px;
+    }
+    .main-footer .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .main-footer .footer-links a {
+        margin-left: 0;
+    }
+}
