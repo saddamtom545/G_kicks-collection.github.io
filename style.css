@@ -1,417 +1,345 @@
-/* ------------------------------------ */
-/* 1. Global Resets & Box-Sizing        */
-/* ------------------------------------ */
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+/* Basic Reset & Typography */
+:root {
+    --primary-color: #4CAF50; /* A friendly green */
+    --secondary-color: #2E7D32; /* Darker green */
+    --accent-color: #FFC107; /* A warm yellow for highlights */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --bg-dark: #2c3e50; /* Dark blue/grey */
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
     margin: 0;
     padding: 0;
-}
-
-/* ------------------------------------ */
-/* 2. Variables (Colors, Fonts, Sizes)  */
-/* ------------------------------------ */
-:root {
-    /* Colors */
-    --primary-color: #2c3e50;    /* Dark Blue/Charcoal for headings, primary text */
-    --accent-color: #4CAF50;     /* Fresh Green for buttons, highlights */
-    --light-bg-color: #f8f9fa;   /* Very light grey for main background */
-    --white-color: #ffffff;
-    --dark-text-color: #333333;
-    --light-text-color: #6c757d; /* Muted grey for descriptions */
-    --border-color: #e0e0e0;     /* Light grey for borders */
-    --shadow-color: rgba(0, 0, 0, 0.08); /* Subtle shadow for cards */
-
-    /* Fonts */
-    --heading-font: 'Montserrat', sans-serif;
-    --body-font: 'Open Sans', sans-serif;
-
-    /* Spacing */
-    --spacing-xs: 0.5rem;   /* 8px */
-    --spacing-sm: 1rem;     /* 16px */
-    --spacing-md: 1.5rem;   /* 24px */
-    --spacing-lg: 2rem;     /* 32px */
-    --spacing-xl: 3rem;     /* 48px */
-}
-
-/* ------------------------------------ */
-/* 3. Base Styles (Body, HTML)          */
-/* ------------------------------------ */
-html {
-    scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: var(--body-font);
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: var(--dark-text-color);
-    background-color: var(--light-bg-color);
-    -webkit-font-smoothing: antialiased; /* Improves font rendering on macOS/iOS */
-    -moz-osx-font-smoothing: grayscale; /* Improves font rendering on macOS/iOS */
+    color: var(--text-color);
+    background-color: var(--bg-light);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 1rem;
+    color: var(--text-color);
 }
 
 a {
     text-decoration: none;
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 a:hover {
-    text-decoration: underline;
+    color: var(--secondary-color);
 }
 
-ul {
-    list-style: none;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Removes extra space below images */
-}
-
-/* ------------------------------------ */
-/* 4. Typography (Headings, Paragraphs) */
-/* ------------------------------------ */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
-    color: var(--primary-color);
-    line-height: 1.2;
-    margin-bottom: var(--spacing-sm);
-}
-
-h1 {
-    font-size: 2.5rem; /* 40px */
-    font-weight: 700;
-}
-
-h2 {
-    font-size: 2rem;   /* 32px */
-    font-weight: 600;
-}
-
-h3 {
-    font-size: 1.5rem; /* 24px */
-    font-weight: 600;
-}
-
-p {
-    margin-bottom: var(--spacing-sm);
-}
-
-.text-center {
-    text-align: center;
-}
-
-/* ------------------------------------ */
-/* 5. Header & Navigation               */
-/* ------------------------------------ */
-.header {
-    background-color: var(--white-color);
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px var(--shadow-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000; /* Ensure header stays on top */
-}
-
-.logo {
-    font-family: var(--heading-font);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: -0.5px;
-}
-
-.logo span {
-    color: var(--accent-color);
-}
-
-.nav-links li {
-    display: inline-block;
-    margin-left: var(--spacing-lg);
-}
-
-.nav-links a {
-    color: var(--primary-color);
-    font-weight: 600;
-    font-size: 1.05rem;
-    padding: 0.5rem 0;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent-color);
-    text-decoration: none;
-}
-
-/* ------------------------------------ */
-/* 6. Hero Section                      */
-/* ------------------------------------ */
-.hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1543163521-1bf539c55dd2?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-    color: var(--white-color);
-    text-align: center;
-    padding: 8rem var(--spacing-lg);
-    min-height: 400px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero h1 {
-    font-size: 3.5rem; /* 56px */
-    margin-bottom: var(--spacing-md);
-    color: var(--white-color); /* Override default heading color */
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero p {
-    font-size: 1.3rem; /* 20px */
-    margin-bottom: var(--spacing-xl);
-    max-width: 800px;
-    opacity: 0.9;
-}
-
-/* ------------------------------------ */
-/* 7. Buttons                           */
-/* ------------------------------------ */
+/* Buttons */
 .btn {
     display: inline-block;
-    background-color: var(--accent-color);
-    color: var(--white-color);
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-    font-family: var(--body-font);
-    font-size: 1rem;
-}
-
-.btn:hover {
-    background-color: darken(var(--accent-color), 10%); /* This won't work in plain CSS, see note below */
-    background-color: #3e8e41; /* Manual darker shade for hover */
-    transform: translateY(-2px);
-    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .btn-primary {
     background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-primary:hover {
-    background-color: #1e2b38; /* Manual darker shade */
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--light-text-color);
 }
 
-/* ------------------------------------ */
-/* 8. Main Content & Shoe Grid          */
-/* ------------------------------------ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
+.btn-secondary {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
 }
 
-.shoe-grid {
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+
+/* Header */
+.main-header {
+    background-color: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo a {
+    color: var(--light-text-color);
+    text-decoration: none;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 20px;
+}
+
+.main-nav ul li a {
+    color: var(--light-text-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1500x500/333/fff?text=Mutumba+Shoes+Banner') no-repeat center center/cover;
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 3rem;
+}
+
+.hero-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Shoe Grid Section */
+.shoes-grid-section,
+.how-it-works-section,
+.contact-us-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.shoes-grid-section h2,
+.how-it-works-section h2,
+.contact-us-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.shoes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    gap: 30px;
+    margin-top: 2rem;
 }
 
-/* ------------------------------------ */
-/* 9. Individual Shoe Card Styling      */
-/* ------------------------------------ */
 .shoe-card {
-    background-color: var(--white-color);
+    background-color: #fff;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px var(--shadow-color);
+    box-shadow: 0 4px 10px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column; /* Ensure content stacks vertically */
+    text-align: left;
+    padding-bottom: 20px; /* Space for button */
 }
 
 .shoe-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.shoe-card-image {
+.shoe-card img {
     width: 100%;
-    height: 250px; /* Fixed height for consistent image size */
-    object-fit: cover; /* Ensures images cover the area without distortion */
-    border-bottom: 1px solid var(--border-color);
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.shoe-card-content {
-    padding: var(--spacing-md);
-    flex-grow: 1; /* Allows content to expand and push button to bottom */
+.shoe-card h3 {
+    font-size: 1.4rem;
+    margin: 0 15px 10px;
+    color: var(--secondary-color);
+}
+
+.shoe-card .description,
+.shoe-card .details,
+.shoe-card .price,
+.shoe-card .seller-info {
+    font-size: 0.95rem;
+    margin: 0 15px 10px;
+}
+
+.shoe-card .price {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.shoe-card .seller-info {
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 15px;
+    margin-bottom: 0; /* Adjust for button below */
+}
+
+.shoe-card .btn {
+    width: calc(100% - 30px); /* Full width minus padding */
+    margin: 0 15px;
+    text-align: center;
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+.how-it-works-section h2 {
+    color: var(--light-text-color);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 2rem;
+}
+
+.step-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.step-card h3 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+}
+
+.step-card p {
+    font-size: 1.1rem;
+}
+
+/* Contact Us Section */
+.contact-us-section {
+    background-color: #fff;
+}
+
+.contact-methods p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.contact-methods a {
+    font-weight: 600;
+}
+
+.business-cta {
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--bg-dark);
+    color: var(--light-text-color);
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.main-footer .container {
     display: flex;
     flex-direction: column;
-}
-
-.shoe-card-title {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-xs);
-    color: var(--primary-color);
-}
-
-.shoe-card-price {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: var(--spacing-sm);
-}
-
-.shoe-card-description {
-    font-size: 0.95rem;
-    color: var(--light-text-color);
-    margin-bottom: var(--spacing-md);
-    flex-grow: 1; /* Allows description to take up available space */
-}
-
-.shoe-card-contact-btn {
-    width: 100%;
-    margin-top: auto; /* Pushes the button to the bottom */
-}
-
-/* ------------------------------------ */
-/* 10. Footer                           */
-/* ------------------------------------ */
-.footer {
-    background-color: var(--primary-color);
-    color: var(--white-color);
-    padding: var(--spacing-xl) var(--spacing-lg);
-    text-align: center;
-    margin-top: var(--spacing-xl);
-}
-
-.footer-links ul {
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
-.footer-links li {
-    display: inline-block;
-    margin: 0 var(--spacing-sm);
+    align-items: center;
 }
 
 .footer-links a {
-    color: var(--white-color);
-    font-weight: 400;
+    color: var(--light-text-color);
+    margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
     color: var(--accent-color);
-    text-decoration: none;
 }
 
-.footer p {
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-/* ------------------------------------ */
-/* 11. Responsive Design (Media Queries)*/
-/* ------------------------------------ */
-@media (max-width: 992px) { /* Laptops and smaller */
-    .hero h1 {
-        font-size: 3rem;
-    }
-    .hero p {
-        font-size: 1.1rem;
-    }
-    .shoe-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: var(--spacing-md);
-    }
-    .nav-links li {
-        margin-left: var(--spacing-md);
-    }
-}
-
-@media (max-width: 768px) { /* Tablets and smaller */
-    .header {
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .main-header .container {
         flex-direction: column;
         text-align: center;
-        padding: var(--spacing-sm);
     }
-    .nav-links {
-        margin-top: var(--spacing-md);
-    }
-    .nav-links li {
-        margin: 0 var(--spacing-sm);
-    }
-    .hero {
-        padding: 6rem var(--spacing-md);
-        min-height: 300px;
-    }
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-    .hero p {
-        font-size: 1rem;
-    }
-    .container {
-        padding: var(--spacing-md);
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.7rem;
-    }
-    h3 {
-        font-size: 1.3rem;
-    }
-}
 
-@media (max-width: 576px) { /* Mobile phones */
-    .header {
-        padding: var(--spacing-sm);
+    .main-nav ul {
+        margin-top: 15px;
+        flex-direction: column;
+        width: 100%;
     }
-    .logo {
-        font-size: 1.5rem;
+
+    .main-nav ul li {
+        margin: 10px 0;
     }
-    .nav-links li {
-        display: block; /* Stack navigation links vertically */
-        margin: var(--spacing-xs) 0;
-    }
-    .nav-links a {
-        padding: var(--spacing-xs) 0;
-    }
-    .hero {
-        padding: 4rem var(--spacing-sm);
-    }
-    .hero h1 {
+
+    .hero-section h2 {
         font-size: 2rem;
     }
-    .hero p {
-        font-size: 0.9rem;
+
+    .shoes-grid {
+        grid-template-columns: 1fr; /* Stack items on small screens */
     }
-    .shoe-grid {
-        grid-template-columns: 1fr; /* Single column for small mobiles */
-        gap: var(--spacing-md);
+
+    .how-it-works-section h2,
+    .contact-us-section h2 {
+        font-size: 2rem;
     }
-    .shoe-card-image {
-        height: 200px; /* Slightly smaller images on mobile */
+
+    .steps-grid {
+        grid-template-columns: 1fr;
     }
-    .footer {
-        padding: var(--spacing-lg) var(--spacing-sm);
-    }
-    .footer-links li {
-        display: block;
-        margin: var(--spacing-xs) 0;
+
+    .footer-links {
+        margin-top: 15px;
     }
 }
