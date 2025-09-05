@@ -197,22 +197,6 @@ footer .contact-link:hover {
     text-decoration: none;
     cursor: pointer;
 }
-/* Add this specific style for the call icon */
-.call-icon {
-    color: #28a745; /* A standard green */
-    font-size: 1.5em; /* Adjust size as needed, or inherit from .contact-icon */
-}
-
-/* You might already have .contact-icon, ensure it looks good */
-.contact-icon {
-    margin: 0 5px; /* Adjust spacing as needed */
-    transition: color 0.3s ease;
-}
-
-.contact-link:hover .contact-icon {
-    color: #1a7a33; /* Slightly darker green on hover */
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     header h1 {
