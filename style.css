@@ -1,7 +1,7 @@
 /* style.css */
 
 :root {
-    --primary-bg: #F8F8F8;        /* Light grey background */
+    --primary-bg: #FFC107;        /* Light grey background */
     --text-color: #333333;        /* Dark grey for general text */
     --accent-color: #007BFF;      /* A vibrant blue for buttons/highlights */
     --secondary-text: #666666;    /* Medium grey for secondary text */
