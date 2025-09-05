@@ -1,34 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // --- Image Modal Functionality ---
-    const modal = document.getElementById('imageModal');
+// script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Set current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // --- Image Modal Logic ---
+    const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
-    const closeButton = document.getElementsByClassName('close-button')[0];
-    const shoeItems = document.querySelectorAll('.shoe-item img');
+    const closeButton = document.querySelector('.close-button');
+    const shoeImages = document.querySelectorAll('.shoe-item img');
 
     // Open the modal when a shoe image is clicked
-    shoeItems.forEach(item => {
-        item.addEventListener('click', function() {
-            modal.style.display = 'block';
-            modalImage.src = this.src; // Set the modal image source to the clicked image's source
-            modalImage.alt = this.alt; // Set the modal image alt text
+    shoeImages.forEach(img => {
+        img.addEventListener('click', () => {
+            imageModal.classList.add('active'); // Add 'active' class to show and animate
+            modalImage.src = img.src; // Set the source of the modal image
+            modalImage.alt = img.alt; // Set the alt text
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         });
     });
 
     // Close the modal when the close button is clicked
-    closeButton.addEventListener('click', function() {
-        modal.style.display = 'none';
+    closeButton.addEventListener('click', () => {
+        imageModal.classList.remove('active'); // Remove 'active' class to hide and animate
+        document.body.style.overflow = ''; // Re-enable background scrolling
     });
 
-    // Close the modal when clicking anywhere outside the image (on the modal background)
-    window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
+    // Close the modal when clicking outside the image content (on the overlay)
+    imageModal.addEventListener('click', (e) => {
+        if (e.target === imageModal) { // Check if the click was directly on the modal background
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 
-    // --- Dynamic Current Year in Footer ---
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
-    }
+    // Close the modal with the Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
 });
