@@ -74,12 +74,17 @@ nav a:hover {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 20px;
+    /* Adjusted padding to fit only the image */
+    padding: 15px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     cursor: pointer; /* Indicate that the item is clickable */
+    display: flex; /* Use flexbox to easily center image */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    min-height: 250px; /* Give a consistent height to the card itself */
 }
 
 .shoe-item:hover {
@@ -89,51 +94,23 @@ nav a:hover {
 
 .shoe-item img {
     max-width: 100%;
-    height: 200px; /* Fixed height for consistent grid */
+    max-height: 220px; /* Allow image to fill most of the card height */
     object-fit: contain; /* Ensures entire image is visible without cropping */
     border-radius: 4px;
-    margin-bottom: 15px;
     transition: transform 0.3s ease;
+    /* Removed margin-bottom as there's no text below it */
 }
 
 .shoe-item:hover img {
     transform: scale(1.03); /* Subtle zoom on hover */
 }
 
-.shoe-item h2 {
-    font-size: 1.5em;
-    margin: 10px 0;
-    color: var(--text-color);
-}
+/* Removed styles for h2, p, .price, button inside .shoe-item */
+/* .shoe-item h2 { ... } */
+/* .shoe-item p { ... } */
+/* .shoe-item .price { ... } */
+/* .shoe-item button { ... } */
 
-.shoe-item p {
-    font-size: 0.9em;
-    color: var(--secondary-text);
-    margin-bottom: 15px;
-}
-
-.shoe-item .price {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: var(--accent-color);
-    display: block;
-    margin-bottom: 15px;
-}
-
-.shoe-item button {
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.shoe-item button:hover {
-    background-color: #0056b3; /* Darker shade of blue on hover */
-}
 
 footer {
     text-align: center;
@@ -246,5 +223,11 @@ footer .contact-link:hover {
         top: 10px;
         right: 20px;
         font-size: 30px;
+    }
+    .shoe-item {
+        min-height: 220px; /* Adjust card height for smaller screens */
+    }
+    .shoe-item img {
+        max-height: 180px; /* Adjust image height for smaller screens */
     }
 }
