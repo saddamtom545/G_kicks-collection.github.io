@@ -1,13 +1,13 @@
 /* style.css */
 
 :root {
-    --primary-bg: #F8F8F8;        /* Light grey background */
-    --text-color: #333333;        /* Dark grey for general text */
-    --accent-color: #007BFF;      /* A vibrant blue for buttons/highlights */
-    --secondary-text: #666666;    /* Medium grey for secondary text */
+    --primary-bg: #eadb2a;        /* Light grey background */
+    --text-color: #27c952;        /* Dark grey for general text */
+    --accent-color: #27c952;      /* A vibrant blue for buttons/highlights */
+    --secondary-text: #4947a5;    /* Medium grey for secondary text */
     --border-color: #E0E0E0;      /* Light grey for borders */
-    --card-bg: #FFFFFF;           /* White for card backgrounds */
-    --modal-bg: rgba(0, 0, 0, 0.9); /* Dark overlay for modal */
+    --card-bg: #ffffff;           /* White for card backgrounds */
+    --modal-bg: #eadb2a; /* Dark overlay for modal */
     --modal-close-color: #f1f1f1; /* White for close button */
 }
 
