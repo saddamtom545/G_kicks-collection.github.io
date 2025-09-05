@@ -41,17 +41,4 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
         }
     });
-
-    // --- Optional: Existing button click logic (if you want to keep it) ---
-    const viewDetailsButtons = document.querySelectorAll('.shoe-item button');
-    viewDetailsButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent image click from also triggering modal
-            const shoeItem = event.target.closest('.shoe-item');
-            const shoeName = shoeItem.querySelector('h2').textContent;
-            alert(`Viewing details for ${shoeName}! (This would lead to a product page)`);
-            // In a real site, this would navigate to a dedicated product page:
-            // window.location.href = `/products/${shoeName.replace(/\s+/g, '-').toLowerCase()}`;
-        });
-    });
 });
