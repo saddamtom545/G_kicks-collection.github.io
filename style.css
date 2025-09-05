@@ -1,69 +1,250 @@
-/* General Body and Reset */
-body {                                                                                                               margin: 0;
-    font-family: 'Poppins', sans-serif; /* Using the Google Font */                                                  background-color: #FFFACD; /* Light Yellow Secondary background */
-    color: #333; /* Darker text for contrast */                                                                      line-height: 1.6;
-}                                                                                                                
-/* Headings */                                                                                                   h1, h2 {
-    text-align: center;                                                                                              color: #FFD700; /* Vibrant Yellow Primary for titles */
-    margin-bottom: 1em;                                                                                              font-weight: 700; /* Bolder titles */
-}                                                                                                                
-h1 {                                                                                                                 font-size: 3em; /* Larger main title */
-    padding: 20px 0;                                                                                                 background-color: #8A2BE2; /* Purple background for the header */
-    color: #FFFACD; /* Light yellow text on purple background */                                                     border-bottom: 5px solid #FFD700; /* Yellow line at the bottom */
-}                                                                                                                
-h2 {                                                                                                                 font-size: 2em; /* Section title size */
-    margin-top: 2em;                                                                                             }
-                                                                                                                 /* Links (General) */
-a {                                                                                                                  color: #8A2BE2; /* Purple for links */
-    text-decoration: none;                                                                                       }
-                                                                                                                 a:hover {
-    text-decoration: underline;                                                                                  }
-                                                                                                                 /* Main Content Area */
-main {                                                                                                               max-width: 1200px;
-    margin: 0 auto; /* Center the main content */                                                                    padding: 20px;
-}                                                                                                                
-/* Gallery Section */                                                                                            .gallery-section {
-    padding: 40px 0;                                                                                             }
-                                                                                                                 /* Shoe Grid Layout */
-.shoe-grid {                                                                                                         display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */                       gap: 20px; /* Space between grid items */
-    justify-items: center; /* Center items in the grid */                                                        }
-                                                                                                                 /* Individual Shoe Item Styling */
-.shoe-item {                                                                                                         display: block; /* Make the whole area clickable */
-    background-color: #FFF; /* White background for each item */                                                     border: 3px solid #8A2BE2; /* Purple border */
-    border-radius: 8px; /* Slightly rounded corners */                                                               overflow: hidden; /* Ensures image respects border-radius */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow for depth */                                             transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}                                                                                                                
-.shoe-item:hover {                                                                                                   transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Stronger shadow on hover */                                           border-color: #FFD700; /* Yellow border on hover */
-}                                                                                                                
-.shoe-item img {                                                                                                     width: 100%; /* Image fills its container */
-    height: 200px; /* Fixed height for consistency */                                                                object-fit: cover; /* Crops image to fit without distortion */
-    display: block; /* Removes extra space below image */                                                        }
-                                                                                                                 /* Footer */
-.main-footer {                                                                                                       text-align: center;
-    padding: 30px 20px;                                                                                              background-color: #8A2BE2; /* Purple background */
-    color: #FFFACD; /* Light yellow text */                                                                          margin-top: 40px;
-    border-top: 5px solid #FFD700; /* Yellow line at the top */                                                  }
-                                                                                                                 .main-footer a {
-    color: #FFD700; /* Yellow links in footer */                                                                     font-weight: 600;
-}                                                                                                                
-.main-footer a:hover {                                                                                               color: #FFFACD; /* Light yellow on hover */
-}                                                                                                                
-/* Responsive Adjustments */                                                                                     @media (max-width: 768px) {
-    h1 {                                                                                                                 font-size: 2.5em;
-    }                                                                                                                h2 {
-        font-size: 1.8em;                                                                                            }
-    .shoe-grid {                                                                                                         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for smaller screens */
-    }                                                                                                            }
-                                                                                                                 @media (max-width: 480px) {
-    h1 {
+/* style.css */
+
+:root {
+    --primary-bg: #F8F8F8;        /* Light grey background */
+    --text-color: #333333;        /* Dark grey for general text */
+    --accent-color: #007BFF;      /* A vibrant blue for buttons/highlights */
+    --secondary-text: #666666;    /* Medium grey for secondary text */
+    --border-color: #E0E0E0;      /* Light grey for borders */
+    --card-bg: #FFFFFF;           /* White for card backgrounds */
+    --modal-bg: rgba(0, 0, 0, 0.9); /* Dark overlay for modal */
+    --modal-close-color: #f1f1f1; /* White for close button */
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--card-bg);
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 2.5em; /* Larger heading */
+}
+
+.subheading {
+    font-size: 1.3em; /* Subheading style */
+    color: var(--secondary-text);
+    margin-top: 10px;
+    margin-bottom: 25px;
+    font-weight: 300; /* Lighter weight for subheading */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+.shoe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.shoe-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    cursor: pointer; /* Indicate that the item is clickable */
+}
+
+.shoe-item:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.shoe-item img {
+    max-width: 100%;
+    height: 200px; /* Fixed height for consistent grid */
+    object-fit: contain; /* Ensures entire image is visible without cropping */
+    border-radius: 4px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.shoe-item:hover img {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+.shoe-item h2 {
+    font-size: 1.5em;
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.shoe-item p {
+    font-size: 0.9em;
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+}
+
+.shoe-item .price {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 15px;
+}
+
+.shoe-item button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.shoe-item button:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background-color: var(--card-bg);
+    color: var(--secondary-text);
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+footer .contact-links {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Spacing between links */
+    flex-wrap: wrap; /* Allow links to wrap on smaller screens */
+}
+
+footer .contact-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+footer .contact-link:hover {
+    color: #0056b3; /* Darker accent on hover */
+}
+
+/* --- Image Modal Styles --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: var(--modal-bg); /* Dark overlay */
+
+    /* Use flexbox to center content */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0; /* Start hidden for fade-in */
+    transition: opacity 0.3s ease;
+    pointer-events: none; /* Allows clicks to pass through when hidden */
+}
+
+.modal.active {
+    opacity: 1; /* Show when active */
+    pointer-events: auto; /* Enable clicks when active */
+}
+
+.modal-content {
+    display: block;
+    max-width: 90%; /* Max width of image */
+    max-height: 90%; /* Max height of image */
+    object-fit: contain; /* Ensure image fits within bounds */
+    transform: scale(0.8); /* Start smaller for zoom effect */
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1); /* Zoom to actual size when active */
+}
+
+.close-button {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: var(--modal-close-color);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    line-height: 1; /* Adjust line height for better centering of X */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
         font-size: 2em;
     }
-    h2 {
-        font-size: 1.5em;
+    .subheading {
+        font-size: 1.1em;
     }
     .shoe-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 20px 10px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    footer .contact-links {
+        flex-direction: column; /* Stack links vertically on small screens */
+        gap: 10px;
+    }
+    .close-button {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
     }
 }
