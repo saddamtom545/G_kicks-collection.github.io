@@ -110,6 +110,23 @@ nav a:hover {
 /* .shoe-item p { ... } */
 /* .shoe-item .price { ... } */
 /* .shoe-item button { ... } */
+/* --- SPECIFIC STYLES FOR SHOE ITEM 7 --- */
+/* Default for larger screens (e.g., desktop) */
+#shoe-item-7 {
+    grid-column: span 2; /* Make it span 2 columns */
+    grid-row: span 2;    /* Make it span 2 rows, for a larger, prominent display */
+    min-height: 550px;   /* Ensure enough height for the spanned rows */
+    display: flex;       /* Override to display as flex to center its content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+}
+
+#shoe-item-7 img {
+    height: 100%;        /* Make the image fill the entire height of this larger item */
+    width: 100%;         /* Make the image fill the entire width */
+    object-fit: cover;   /* Crop to cover the area, often better for featured images */
+    max-height: none;    /* Remove max-height constraint from general .shoe-item img */
+}
 
 
 footer {
@@ -228,4 +245,47 @@ footer .contact-link:hover {
     .shoe-item img {
         max-height: 180px; /* Adjust image height for smaller screens */
     }
+    /* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .subheading {
+        font-size: 1.1em;
+    }
+    .shoe-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 20px 10px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    footer .contact-links {
+        flex-direction: column; /* Stack links vertically on small screens */
+        gap: 10px;
+    }
+    .close-button {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+    .shoe-item {
+        min-height: 220px; /* Adjust card height for smaller screens */
+    }
+    .shoe-item img {
+        max-height: 180px; /* Adjust image height for smaller screens */
+    }
+
+    /* Shoe Item 7 adjustments for small screens */
+    #shoe-item-7 {
+        grid-column: span 1; /* On small screens, it should only span 1 column */
+        grid-row: span 1;    /* And only 1 row, behaving like other items */
+        min-height: 220px;   /* Reset to the standard item height */
+    }
+    #shoe-item-7 img {
+        max-height: 180px;   /* Reset to the standard image height */
+        object-fit: contain; /* Go back to containing the image */
+    }
+}
 }
