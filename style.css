@@ -113,9 +113,9 @@ nav a:hover {
 /* --- SPECIFIC STYLES FOR SHOE ITEM 7 --- */
 /* Default for larger screens (e.g., desktop) */
 #shoe-item-7 {
-    grid-column: span 3; /* Make it span 2 columns */
+    grid-column: span 1; /* Make it span 2 columns */
     grid-row: span 1;    /* Make it span 2 rows, for a larger, prominent display */
-    min-height: 770px;   /* Ensure enough height for the spanned rows */
+    min-height: 550px;   /* Ensure enough height for the spanned rows */
     display: flex;       /* Override to display as flex to center its content */
     align-items: center; /* Center content vertically */
     justify-content: center; /* Center content horizontally */
