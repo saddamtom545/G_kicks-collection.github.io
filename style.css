@@ -279,8 +279,8 @@ footer .contact-link:hover {
 
     /* Shoe Item 7 adjustments for small screens */
     #shoe-item-7 {
-        grid-column: span 1; /* On small screens, it should only span 1 column */
-        grid-row: span 1;    /* And only 1 row, behaving like other items */
+        grid-column: span 2; /* On small screens, it should only span 1 column */
+        grid-row: span 2;    /* And only 1 row, behaving like other items */
         min-height: 220px;   /* Reset to the standard item height */
     }
     #shoe-item-7 img {
