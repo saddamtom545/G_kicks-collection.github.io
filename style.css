@@ -105,29 +105,6 @@ nav a:hover {
     transform: scale(1.03); /* Subtle zoom on hover */
 }
 
-/* Removed styles for h2, p, .price, button inside .shoe-item */
-/* .shoe-item h2 { ... } */
-/* .shoe-item p { ... } */
-/* .shoe-item .price { ... } */
-/* .shoe-item button { ... } */
-/* --- SPECIFIC STYLES FOR SHOE ITEM 7 --- */
-/* Default for larger screens (e.g., desktop) */
-#shoe-item-7 {
-    grid-column: span 2; /* Make it span 2 columns */
-    grid-row: span 2;    /* Make it span 2 rows, for a larger, prominent display */
-    min-height: 550px;   /* Ensure enough height for the spanned rows */
-    display: flex;       /* Override to display as flex to center its content */
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-}
-
-#shoe-item-7 img {
-    height: 100%;        /* Make the image fill the entire height of this larger item */
-    width: 100%;         /* Make the image fill the entire width */
-    object-fit: cover;   /* Crop to cover the area, often better for featured images */
-    max-height: none;    /* Remove max-height constraint from general .shoe-item img */
-}
-
 
 footer {
     text-align: center;
