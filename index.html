@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -19,8 +19,6 @@
     color: var(--text);
     overflow-x: hidden;
   }
-
-  /* NAV */
   nav {
     position: sticky;
     top: 0;
@@ -34,8 +32,6 @@
     align-items: center;
   }
   .brand { font-weight:700; font-size:1.4rem; letter-spacing:1px; }
-
-  /* HERO */
   .hero {
     height: 60vh;
     min-height: 380px;
@@ -56,8 +52,6 @@
     0%,100% { transform: translateY(0) rotate(-4deg); }
     50% { transform: translateY(-14px) rotate(4deg); }
   }
-
-  /* BENTO GRID */
   .container { max-width:1200px; margin:40px auto; padding:0 20px; }
   .grid {
     display:grid;
@@ -71,7 +65,6 @@
   @media (max-width: 600px) {
     .grid { grid-template-columns: 1fr; grid-auto-rows: 260px; }
   }
-
   .card {
     position: relative;
     background: rgba(255,255,255,0.6);
@@ -107,8 +100,6 @@
     background:var(--primary); color:#111; font-weight:600;
     cursor:pointer;
   }
-
-  /* MODAL */
   .modal {
     display:none;
     position:fixed; inset:0;
@@ -163,8 +154,6 @@
   .close {
     position:absolute; right:16px; top:12px; font-size:28px; cursor:pointer; color:#fff;
   }
-
-  /* WHATSAPP */
   .wa {
     position:fixed; right:24px; bottom:24px;
     background:#25D366; color:#fff;
@@ -198,18 +187,15 @@
 
 <section class="hero">
   <div>
-    <img src="https://image2url.com/r2/default/images/1774917649958-781384d2-ab96-4174-a2d6-51f8b7d378eb.png" alt="Air Force 1">
+    <img src="https://images.unsplash.com/photo-1618354691793-8a51f3b2d8f3?q=80&w=800" alt="Samba White">
     <h1>Step into Style</h1>
   </div>
 </section>
 
 <div class="container">
-  <div class="grid" id="grid">
-    <!-- Cards injected by JS -->
-  </div>
+  <div class="grid" id="grid"></div>
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="modal-box">
@@ -232,10 +218,12 @@
 
 <script>
   const shoes = [
-    { id:1, name:"Air Force 1", price:"KSh 3,500", img:"https://image2url.com/r2/default/images/1774917649958-781384d2-ab96-4174-a2d6-51f8b7d378eb.png", sizes:[38,40,42,44], stock:2 },
-    { id:2, name:"Lime Runner", price:"KSh 4,200", img:"https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?q=80&w=800", sizes:[39,41,42], stock:5 },
-    { id:3, name:"Classic Stealth", price:"KSh 5,000", img:"https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=800", sizes:[40,43,44,45], stock:1 },
-    { id:4, name:"Urban Walker", price:"KSh 3,800", img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800", sizes:[37,38,41], stock:4 }
+    { id:1, name:"Samba White (Adult)", price:"KSh 3,500", img:"https://images.unsplash.com/photo-1618354691793-8a51f3b2d8f3?q=80&w=800", sizes:[38,40,42,44], stock:2 },
+    { id:2, name:"Air Force 1 Black & White (Adult)", price:"KSh 4,200", img:"https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=800", sizes:[39,41,42,44], stock:5 },
+    { id:3, name:"Jordan 1 (Adult)", price:"KSh 5,500", img:"https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?q=80&w=800", sizes:[40,42,43,44,45], stock:3 },
+    { id:4, name:"Jordan 4 (Adult)", price:"KSh 5,800", img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800", sizes:[40,41,42,43,44], stock:4 },
+    { id:5, name:"Jordan 4 (Kids)", price:"KSh 3,800", img:"https://images.unsplash.com/photo-1595950653106-6c9eb6808177?q=80&w=800", sizes:[32,33,34,35,36], stock:6 },
+    { id:6, name:"Air Force 1 (Kids)", price:"KSh 3,200", img:"https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=800", sizes:[32,33,34,35,36], stock:7 }
   ];
 
   const grid = document.getElementById('grid');
@@ -246,7 +234,6 @@
   const mStock = document.getElementById('mStock');
   const mMini = document.getElementById('mMini');
   const wantBtn = document.getElementById('wantBtn');
-  let currentShoe = null;
   let selectedSize = null;
 
   function renderGrid() {
@@ -266,7 +253,6 @@
   }
 
   function openModal(shoe) {
-    currentShoe = shoe;
     selectedSize = null;
     mImg.src = shoe.img;
     mName.textContent = shoe.name;
@@ -284,7 +270,6 @@
       };
       mSizes.appendChild(el);
     });
-    // mini carousel (other shoes)
     mMini.innerHTML = '';
     shoes.filter(x=>x.id!==shoe.id).forEach(x => {
       const div = document.createElement('div');
@@ -292,7 +277,6 @@
       div.innerHTML = `<img src="${x.img}" alt="${x.name}"><div>${x.name}<br><small>Sizes: ${x.sizes.join(', ')}</small></div>`;
       mMini.appendChild(div);
     });
-    // default WhatsApp link if no size selected
     wantBtn.href = `https://wa.me/254719309727?text=Hello%20GShoe%20Collection,%20I%20want%20this%20${encodeURIComponent(shoe.name)}`;
     modal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -314,4 +298,4 @@
 </script>
 
 </body>
-          </html>
+  </html>
