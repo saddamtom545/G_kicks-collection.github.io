@@ -1,22 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel</title>
-    <style>
-        #adminContent { background-color: yellow; padding: 20px; border-radius: 8px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shoe Admin</title>
+<style>
+  :root{
+    --bg:#f7f7fb;
+    --card:#ffffff;
+    --muted:#f0f0f4;
+    --text:#222;
+    --accent:#111;
+    --danger:#d93025;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    padding:24px;
+  }
+ .container{
+    max-width:900px;
+    margin:0 auto;
+  }
+ .card{
+    background:var(--card);
+    border:1px solid #e4e4e8;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,.04);
+  }
+  h1{margin:0 0 16px;font-size:1.5rem}
+  input{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-size:1rem;
+    margin:8px 0;
+  }
+  button{
+    padding:10px 16px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    background:var(--card);
+    cursor:pointer;
+    font-size:.95rem;
+  }
+  button.primary{
+    background:var(--accent);
+    color:#fff;
+    border-color:var(--accent);
+  }
+  button.danger{
+    background:var(--danger);
+    color:#fff;
+    border-color:var(--danger);
+  }
+ .row{display:flex;gap:10px;flex-wrap:wrap}
+ .hidden{display:none}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:16px;
+    background:var(--card);
+    border:1px solid #e4e4e8;
+    border-radius:12px;
+    overflow:hidden;
+  }
+  th,td{
+    padding:12px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+  }
+  th{background:var(--muted);font-weight:600}
+ .center{text-align:center}
+</style>
 </head>
-<body onload="renderShoes()">
-    <div id="adminContent">
-        <h1>Admin Panel</h1>
-        <!-- Admin content here -->
+<body>
+<div class="container">
+
+  <!-- LOGIN -->
+  <div id="login" class="card">
+    <h1>Admin Login</h1>
+    <input type="password" id="pwd" placeholder="Password">
+    <div class="row">
+      <button class="primary" id="enterBtn">Enter</button>
     </div>
-    <script>
-        function renderShoes() {
-            // logic to render shoes
+    <p id="loginError" class="center" style="color:var(--danger);display:none;margin-top:8px">Wrong password</p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard" class="hidden">
+    <div class="card">
+      <h1>Shoe Inventory</h1>
+
+      <div class="row">
+        <button class="primary" id="showFormBtn">Add Shoe</button>
+      </div>
+
+      <div id="form" class="hidden" style="margin-top:12px">
+        <input id="name" placeholder="Shoe Name">
+        <input id="price" placeholder="Shoe Price (e.g. KSh 3500)">
+        <div class="row">
+          <button class="primary" id="saveBtn">Save</button>
+          <button id="cancelBtn">Cancel</button>
+        </div>
+      </div>
+
+      <table id="tbl">
+        <thead>
+          <tr><th>Name</th><th>Price</th><th style="width:120px">Action</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const PASSWORD = "admin123"; // change this
+
+  const login = document.getElementById('login');
+  const dashboard = document.getElementById('dashboard');
+  const enterBtn = document.getElementById('enterBtn');
+  const loginError = document.getElementById('loginError');
+
+  const showFormBtn = document.getElementById('showFormBtn');
+  const form = document.getElementById('form');
+  const saveBtn = document.getElementById('saveBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+  const nameInput = document.getElementById('name');
+  const priceInput = document.getElementById('price');
+  const tbody = document.querySelector('#tbl tbody');
+
+  let shoes = JSON.parse(localStorage.getItem('shoes') || '[]');
+
+  enterBtn.addEventListener('click', () => {
+    if(document.getElementById('pwd').value === PASSWORD){
+      login.classList.add('hidden');
+      dashboard.classList.remove('hidden');
+      draw();
+    } else {
+      loginError.style.display = 'block';
+    }
+  });
+
+  showFormBtn.addEventListener('click', () => form.classList.remove('hidden'));
+  cancelBtn.addEventListener('click', () => { form.classList.add('hidden'); clearForm(); });
+
+  saveBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const price = priceInput.value.trim();
+    if(!name ||!price){ alert('Fill name and price'); return; }
+    shoes.push({name, price});
+    persist();
+    draw();
+    clearForm();
+    form.classList.add('hidden');
+  });
+
+  function clearForm(){
+    nameInput.value = '';
+    priceInput.value = '';
+  }
+
+  function persist(){
+    localStorage.setItem('shoes', JSON.stringify(shoes));
+  }
+
+  function draw(){
+    tbody.innerHTML = '';
+    shoes.forEach((s,i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${s.name}</td>
+        <td>${s.price}</td>
+        <td><button class="danger" data-i="${i}">Delete</button></td>
+      `;
+      tr.querySelector('button').addEventListener('click', e => {
+        const idx = +e.target.dataset.i;
+        if(confirm('Delete '+shoes[idx].name+'?')){
+          shoes.splice(idx,1);
+          persist();
+          draw();
         }
-    </script>
+      });
+      tbody.appendChild(tr);
+    });
+  }
+</script>
 </body>
-</html>
+    </html>
