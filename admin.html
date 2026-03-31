@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 10px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Shoe Entries Admin Panel</h1>
+    <button class="btn" onclick="showAddForm()">Add Shoe</button>
+    <div id="addForm" style="display:none;">
+        <h2>Add Shoe</h2>
+        <input type="text" id="shoeName" placeholder="Shoe Name" required>
+        <input type="text" id="shoePrice" placeholder="Shoe Price" required>
+        <button class="btn" onclick="addShoe()">Add</button>
+        <button class="btn" onclick="hideAddForm()">Cancel</button>
+    </div>
+    <h2>Existing Shoes</h2>
+    <table id="shoeTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        let shoes = [];
+
+        function showAddForm() {
+            document.getElementById('addForm').style.display = 'block';
+        }
+
+        function hideAddForm() {
+            document.getElementById('addForm').style.display = 'none';
+        }
+
+        function addShoe() {
+            const name = document.getElementById('shoeName').value;
+            const price = document.getElementById('shoePrice').value;
+            if(name && price) {
+                shoes.push({ name, price });
+                document.getElementById('shoeName').value = '';
+                document.getElementById('shoePrice').value = '';
+                renderShoes();
+                hideAddForm();
+            }
+        }
+
+        function deleteShoe(index) {
+            shoes.splice(index, 1);
+            renderShoes();
+        }
+
+        function renderShoes() {
+            const tableBody = document.getElementById('shoeTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = '';
+            shoes.forEach((shoe, index) => {
+                const row = tableBody.insertRow();
+                row.insertCell(0).innerText = shoe.name;
+                row.insertCell(1).innerText = shoe.price;
+                const actionsCell = row.insertCell(2);
+                actionsCell.innerHTML = `<button class='btn' onclick='deleteShoe(${index})'>Delete</button>`;
+            });
+        }
+    </script>
+</body>
+</html>
