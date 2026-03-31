@@ -13,9 +13,20 @@
   .btn.danger { background:#ffeded; border-color:#f5c2c2; color:#b30000; }
   #addForm { display:none; margin:15px 0; padding:15px; border:1px solid #ddd; border-radius:8px; background:#fff; max-width:400px; }
   #addForm input { display:block; width:100%; padding:8px; margin:8px 0; box-sizing:border-box; }
+  #loginBox { max-width:400px; margin:40px auto; padding:20px; border:1px solid #ddd; border-radius:8px; background:#fff; text-align:center; }
+  #adminContent { display:none; }
 </style>
 </head>
 <body>
+
+<div id="loginBox">
+  <h1>Admin Login</h1>
+  <input type="password" id="adminPass" placeholder="Enter password">
+  <button class="btn" id="loginBtn">Enter</button>
+  <p id="loginMsg" style="color:#b30000;"></p>
+</div>
+
+<div id="adminContent">
   <h1>Shoe Entries Admin Panel</h1>
   <button class="btn" id="showAddBtn">Add Shoe</button>
 
@@ -38,9 +49,18 @@
     </thead>
     <tbody></tbody>
   </table>
+</div>
 
 <script>
+  const ADMIN_PASSWORD = "admin1123"; // change this
+
   let shoes = JSON.parse(localStorage.getItem('shoes') || '[]');
+
+  const loginBox = document.getElementById('loginBox');
+  const adminContent = document.getElementById('adminContent');
+  const loginBtn = document.getElementById('loginBtn');
+  const adminPass = document.getElementById('adminPass');
+  const loginMsg = document.getElementById('loginMsg');
 
   const showAddBtn = document.getElementById('showAddBtn');
   const addForm = document.getElementById('addForm');
@@ -49,6 +69,16 @@
   const tableBody = document.querySelector('#shoeTable tbody');
   const shoeNameInput = document.getElementById('shoeName');
   const shoePriceInput = document.getElementById('shoePrice');
+
+  loginBtn.addEventListener('click', () => {
+    if (adminPass.value === ADMIN_PASSWORD) {
+      loginBox.style.display = 'none';
+      adminContent.style.display = 'block';
+      renderShoes();
+    } else {
+      loginMsg.textContent = 'Incorrect password';
+    }
+  });
 
   showAddBtn.addEventListener('click', () => addForm.style.display = 'block');
   cancelBtn.addEventListener('click', hideAddForm);
@@ -97,8 +127,6 @@
       tableBody.appendChild(row);
     });
   }
-
-  renderShoes();
 </script>
 </body>
-    </html>
+  </html>
