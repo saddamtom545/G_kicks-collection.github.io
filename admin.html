@@ -1,132 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 20px; background:#fafafa; }
-  table { width: 100%; border-collapse: collapse; background:#fff; }
-  th, td { border: 1px solid #ddd; padding: 8px; text-align:left; }
-  th { background-color: #f2f2f2; }
-  .btn { padding: 10px 15px; margin: 5px; cursor: pointer; border:1px solid #ccc; border-radius:6px; background:#fff; }
-  .btn.danger { background:#ffeded; border-color:#f5c2c2; color:#b30000; }
-  #addForm { display:none; margin:15px 0; padding:15px; border:1px solid #ddd; border-radius:8px; background:#fff; max-width:400px; }
-  #addForm input { display:block; width:100%; padding:8px; margin:8px 0; box-sizing:border-box; }
-  #loginBox { max-width:400px; margin:40px auto; padding:20px; border:1px solid #ddd; border-radius:8px; background:#fff; text-align:center; }
-  #adminContent { display:none; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        #adminContent { display:none; background-color: yellow; padding: 20px; border-radius: 8px; }
+    </style>
 </head>
-<body>
-
-<div id="loginBox">
-  <h1>Admin Login</h1>
-  <input type="password" id="adminPass" placeholder="Enter password">
-  <button class="btn" id="loginBtn">Enter</button>
-  <p id="loginMsg" style="color:#b30000;"></p>
-</div>
-
-<div id="adminContent">
-  <h1>Shoe Entries Admin Panel</h1>
-  <button class="btn" id="showAddBtn">Add Shoe</button>
-
-  <div id="addForm">
-    <h2>Add Shoe</h2>
-    <input type="text" id="shoeName" placeholder="Shoe Name" required>
-    <input type="text" id="shoePrice" placeholder="Shoe Price" required>
-    <button class="btn" id="addShoeBtn">Add</button>
-    <button class="btn" id="cancelBtn">Cancel</button>
-  </div>
-
-  <h2>Existing Shoes</h2>
-  <table id="shoeTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-</div>
-
-<script>
-  const ADMIN_PASSWORD = "admin1123"; // change this
-
-  let shoes = JSON.parse(localStorage.getItem('shoes') || '[]');
-
-  const loginBox = document.getElementById('loginBox');
-  const adminContent = document.getElementById('adminContent');
-  const loginBtn = document.getElementById('loginBtn');
-  const adminPass = document.getElementById('adminPass');
-  const loginMsg = document.getElementById('loginMsg');
-
-  const showAddBtn = document.getElementById('showAddBtn');
-  const addForm = document.getElementById('addForm');
-  const addShoeBtn = document.getElementById('addShoeBtn');
-  const cancelBtn = document.getElementById('cancelBtn');
-  const tableBody = document.querySelector('#shoeTable tbody');
-  const shoeNameInput = document.getElementById('shoeName');
-  const shoePriceInput = document.getElementById('shoePrice');
-
-  loginBtn.addEventListener('click', () => {
-    if (adminPass.value === ADMIN_PASSWORD) {
-      loginBox.style.display = 'none';
-      adminContent.style.display = 'block';
-      renderShoes();
-    } else {
-      loginMsg.textContent = 'Incorrect password';
-    }
-  });
-
-  showAddBtn.addEventListener('click', () => addForm.style.display = 'block');
-  cancelBtn.addEventListener('click', hideAddForm);
-  addShoeBtn.addEventListener('click', addShoe);
-
-  function hideAddForm() {
-    addForm.style.display = 'none';
-    shoeNameInput.value = '';
-    shoePriceInput.value = '';
-  }
-
-  function addShoe() {
-    const name = shoeNameInput.value.trim();
-    const price = shoePriceInput.value.trim();
-    if (!name || !price) {
-      alert('Please fill both name and price');
-      return;
-    }
-    shoes.push({ name, price });
-    saveAndRender();
-    hideAddForm();
-  }
-
-  function deleteShoe(index) {
-    if (confirm('Delete this shoe?')) {
-      shoes.splice(index, 1);
-      saveAndRender();
-    }
-  }
-
-  function saveAndRender() {
-    localStorage.setItem('shoes', JSON.stringify(shoes));
-    renderShoes();
-  }
-
-  function renderShoes() {
-    tableBody.innerHTML = '';
-    shoes.forEach((shoe, index) => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${shoe.name}</td>
-        <td>${shoe.price}</td>
-        <td><button class="btn danger">Delete</button></td>
-      `;
-      row.querySelector('button').addEventListener('click', () => deleteShoe(index));
-      tableBody.appendChild(row);
-    });
-  }
-</script>
+<body onload="renderShoes()">
+    <div id="adminContent">
+        <h1>Admin Panel</h1>
+        <!-- Admin content here -->
+    </div>
+    <script>
+        function renderShoes() {
+            // logic to render shoes
+        }
+    </script>
 </body>
-  </html>
+</html>
